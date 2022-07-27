@@ -53,6 +53,18 @@
 			<artifactId>hibernate-java8</artifactId>
 			<version>${version.org.hibernate}</version>
 		</dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-envers</artifactId>
+            <version>5.6.1.Final</version>
+            <scope>test</scope>
+        </dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.22</version>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 
 	<build>
