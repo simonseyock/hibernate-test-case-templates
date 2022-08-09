@@ -32,10 +32,9 @@ public class EntityA {
     @ManyToMany
     @JoinTable(
             name = "EntityA_EntityB",
-            joinColumns = @JoinColumn(name = "entity_b_id"),
-            inverseJoinColumns = @JoinColumn(name = "entity_a_id")
+            joinColumns = @JoinColumn(name = "entity_a_id"),
+            inverseJoinColumns = @JoinColumn(name = "entity_b_id")
     )
     @AuditJoinTable
-//    @NotAudited
-    private List<EntityB> others = new ArrayList<>();
+    private List<EntityB> otherBs = new ArrayList<>();
 }

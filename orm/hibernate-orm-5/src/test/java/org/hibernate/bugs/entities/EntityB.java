@@ -27,13 +27,9 @@ public class EntityB {
     )
     private Long id;
 
-    @ManyToMany
-    @JoinTable(
-            name = "EntityA_EntityB",
-            joinColumns = @JoinColumn(name = "entity_a_id"),
-            inverseJoinColumns = @JoinColumn(name = "entity_b_id")
-    )
-    @AuditJoinTable
-//    @NotAudited
-    private List<EntityA> others = new ArrayList<>();
+    @ManyToMany(mappedBy = "otherBs")
+    private List<EntityA> otherAs = new ArrayList<>();
+
+    @Column
+    private String someField;
 }
