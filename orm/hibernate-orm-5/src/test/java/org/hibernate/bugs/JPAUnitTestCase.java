@@ -32,11 +32,10 @@ public class JPAUnitTestCase {
 	// Add your tests, using standard JUnit.
 	@Test
 	public void hhh123Test() throws Exception {
-
-		// a1 - b1, b2
-		// a2 - b2, b3
-
 		EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+		// set up data
+
 		entityManager.getTransaction().begin();
 
 		EntityA a1 = new EntityA();
@@ -53,6 +52,8 @@ public class JPAUnitTestCase {
 
 		entityManager.clear();
 
+		// remove one entity from the many-to-many relation, on the owning side
+
 		a1 = entityManager.getReference(EntityA.class, a1.getId());
 
 		b1 = entityManager.getReference(EntityB.class, b1.getId());
@@ -66,6 +67,8 @@ public class JPAUnitTestCase {
 		entityManager.getTransaction().commit();
 
 		entityManager.clear();
+
+		// verify correct entries in audit table
 
 		b1 = entityManager.getReference(EntityB.class, b1.getId());
 
